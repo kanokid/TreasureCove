@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://di6whm81juwup"
-path="res://.godot/imported/grass.png-79cf597cc1adecdff9d12adae9606f9b.ctex"
+uid="uid://ch5cof7r2njcm"
+path="res://.godot/imported/Serene_Village_48x48.png-7622190a55fbbb7319aa5e99b4ba892d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://grass.png"
-dest_files=["res://.godot/imported/grass.png-79cf597cc1adecdff9d12adae9606f9b.ctex"]
+source_file="res://Serene_Village_48x48.png"
+dest_files=["res://.godot/imported/Serene_Village_48x48.png-7622190a55fbbb7319aa5e99b4ba892d.ctex"]
 
 [params]
 
