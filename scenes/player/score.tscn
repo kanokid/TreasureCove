@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://drlbsvei64j4i"]
+
+[ext_resource type="Texture2D" uid="uid://di6whm81juwup" path="res://grass.png" id="1_8juob"]
+[ext_resource type="Script" uid="uid://vq4smaavm5ba" path="res://scenes/score.gd" id="1_s7pqq"]
+
+[node name="Label" type="Label" unique_id=3595693]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "0"
+script = ExtResource("1_s7pqq")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=15975077]
+layout_mode = 0
+offset_right = 29.0
+offset_bottom = 30.0
+texture = ExtResource("1_8juob")
+expand_mode = 1
