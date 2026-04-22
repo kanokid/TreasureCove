@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://dst6xb23eda7k"]
+
+[node name="Label" type="Label" unique_id=528834097]
+offset_left = 6.0
+offset_right = 1136.0
+offset_bottom = 369.0
+theme_override_font_sizes/font_size = 240
+text = "YOU WIN"
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1093724766]
+position = Vector2(574, 211)
+
+[node name="Label" type="Label" parent="." unique_id=440593484]
+layout_mode = 0
+offset_left = 374.0
+offset_top = 391.0
+offset_right = 1008.0
+offset_bottom = 509.0
+theme_override_font_sizes/font_size = 30
+text = "You collected all the coins."

@@ -11,15 +11,14 @@ var direction = Vector2.ZERO
 # Preload your scenes and textures outside of functions for cleaner code.
 # The `const` keyword is perfect here because these paths don't change.
 const scorescene_path = preload("res://scenes/player/score.tscn")
+const coin_texture = preload("res://coin.png")
 const icon1_texture = preload("res://icon.svg")
 
 # This array defines the data for our scores.
 # The columns are: [name, starting_count, texture, position]
 # These positions are all different to prevent overlap!
 var scores_data = [
-	["coins", "5", icon1_texture, Vector2(0, 100)],
-	["bushes", "0", icon1_texture, Vector2(0, 150)],
-	["wood", "20", icon1_texture, Vector2(0, 200)]
+	["coins", "0", coin_texture, Vector2(-540, -320)]
 ]
 	# ok so this is where we put all the scores we want to track, along with the score we want them
 	# to start at, the image we want them to have, and the coordinates we want to put them at.
@@ -45,7 +44,6 @@ func _ready() -> void:
 		
 		# 2. Set the variables on the new instance (Assuming the node has these variables defined):
 		# score_info[0] is the name ("coins", "bushes", etc.)
-		# I fixed the typo here: score_label.wha[chest]counting => score_instance.counting
 		score_instance.counting = score_info[0]
 		
 		# score_info[1] is the starting value ("5", "0", etc.).
@@ -74,10 +72,17 @@ func _physics_process(delta: float) -> void:
 	# Assumes you have "left", "right", "up", "down" defined in Project Settings -> Input Map
 	direction = Input.get_vector("left", "right", "up", "down")
 	# get the vector (direction for x + y axes combined - you might have done this in maths in school)
-	
 	# Set the velocity:
 	velocity = direction * speed
 	# velocity is direction combined with speed (you probably did this in physics)
-	
 	# Move the character based on its velocity and handle collisions:
 	move_and_slide()
+
+func increase_score(label_counting):
+	for score_label in score_labels:
+		if score_label.counting == label_counting:
+			score_label.val += 1
+			score_label.text = str(score_label.val)
+		if label_counting == "coins" and score_label.val >= 23:
+			print ("you win")
+			get_tree().change_scene_to_file("res://scenes/goodending.tscn")
