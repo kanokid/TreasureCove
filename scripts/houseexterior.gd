@@ -9,7 +9,7 @@ func _process(delta: float) -> void:
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	# remember to connect the Area2D's body_entered() signal to this function
-	if body.name == "Player":
+	if body.name == "Player" and Global.house_unlocked == true:
 		at_door = true
 		print("at outside door")
 

@@ -62,7 +62,10 @@ func _ready() -> void:
 		
 		# 6. Save a reference to this new node in our score_labels list:
 		score_labels.append(score_instance)
-
+		
+		if score_info[0] == "coins":
+			score_instance.val = Global.total_coins
+			score_instance.text = str(Global.total_coins)
 
 func _physics_process(delta: float) -> void:
 	# This function runs every physics frame (usually 60 times per second).
@@ -82,7 +85,10 @@ func increase_score(label_counting):
 	for score_label in score_labels:
 		if score_label.counting == label_counting:
 			score_label.val += 1
+			Global.total_coins += 1
 			score_label.text = str(score_label.val)
-		if label_counting == "coins" and score_label.val >= 23:
+		if label_counting == "coins" and score_label.val >= 24:
 			print ("you win")
 			get_tree().change_scene_to_file("res://scenes/goodending.tscn")
+		elif score_label.val == 18:
+			Global.house_unlocked = true
